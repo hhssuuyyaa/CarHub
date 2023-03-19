@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Car Tile List" icon-name="standard:account">
+        <div class="slds-p-around_medium wrapper">
+            <template if:true={cars.length}>
+                <div class="content">
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={cars} for:item="car">
+                            <div class="slds-size_1-of-4" key={car.Id}>
+                                <c-car-tile car={car} onselected={handleCarSelected}></c-car-tile>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <template if:false={cars.length}>
+                <c-place-holder message="There are no car matching your current selection"></c-place-holder>
+            </template>
+        </div>
+    </lightning-card>
+</template>
